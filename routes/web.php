@@ -11,6 +11,10 @@
 |
 */
 
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('auth/twitter','TwitterAuthController@redirectToProvider');
+Route::get('twitter/userinfo','TwitterAuthController@handleProviderCallback');
