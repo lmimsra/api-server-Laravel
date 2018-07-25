@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Laravel\Socialite\Facades\Socialite;
+use Psy\Util\Json;
 
 class TwitterAuthController extends Controller {
     public function redirectToProvider() {
@@ -20,7 +21,7 @@ class TwitterAuthController extends Controller {
             . "<br/>Avater: <img src='" . $user->avatar . "'>"
             . "<br/><br/>";
         // OAuth Two Providers
-        $response .= print_r($user, true);
+        $response .= json_encode($user);
         return $response;
     }
 }
